@@ -1,0 +1,9 @@
+iniciando o programa
+    npm init -y
+
+
+
+
+
+pacotes utilizados
+    http express debug
