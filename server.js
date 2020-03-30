@@ -20,6 +20,8 @@ app.use('/', route);
 
 server.listen(port);
 
+server.on('error',onError);
+
 console.log('api rodando na porta ' + port);
 
 function normalizePort(val) {
@@ -31,4 +33,26 @@ function normalizePort(val) {
         return port;
     }
     return false;
+}
+
+function onError(error) {
+    if(error.syscall !== 'listen') {
+        throw error;
+    }
+
+    const bind = typeof port === 'string' ?
+        'Pipe ' + port :
+        'Port ' + port;
+    switch(error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.log(bind + ' is already in user');
+            process.exit(1);
+            break;
+        default :
+        throw error;
+    }
 }
