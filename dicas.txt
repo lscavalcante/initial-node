@@ -6,4 +6,7 @@ iniciando o programa
 
 
 pacotes utilizados
-    http express debug
+    http 
+    express 
+    debug
+    nodemon --save-dev
