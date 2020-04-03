@@ -9,6 +9,9 @@ const router = express.Router();
 mongoose.connect('mongodb+srv://admin:admin@node-baita-jtk7c.mongodb.net/test?retryWrites=true&w=majority', 
 { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, }).catch((e) => console.log(e));
 
+// Carrega os Models
+const Product = require('./models/product');
+
 //carrega as rotas
 const indexRoute = require('./routes/index-route');
 const productRoute = require('./routes/product-route');
