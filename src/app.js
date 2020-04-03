@@ -6,7 +6,8 @@ const app = express();
 const router = express.Router();
 
 // Connecta ao banco
-mongoose.connect("mongodb+srv://admin:admin@node-baita-jtk7c.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://admin:admin@node-baita-jtk7c.mongodb.net/test?retryWrites=true&w=majority', 
+{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, }).catch((e) => console.log(e));
 
 //carrega as rotas
 const indexRoute = require('./routes/index-route');
