@@ -68,11 +68,10 @@ exports.put = (req,res,next) => {
     const id = req.params.id;
     Product
     .findByIdAndUpdate(req.params.id, {
-        $set: {
-            title :req.body.title,
-            description: req.body.description,
-            price: req.body.price
-        }
+        title :req.body.title,
+        description: req.body.description,
+        price: req.body.price,
+        slug: req.body.slug
     }).then(x => {
         res.status(200).send({
             message: 'Produto atualizado com sucesso'
