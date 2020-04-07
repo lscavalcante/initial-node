@@ -13,7 +13,6 @@ exports.get = (req,res,next) => {
             res.status(400).send(e);
         });
 }
-
 exports.getBySlug = (req,res,next) => {
     Product
         .findOne({
@@ -37,7 +36,19 @@ exports.getById = (req,res,next) => {
             res.status(400).send(e);
         });
 }
-
+exports.getByTag = (req,res,next) => {
+    Product
+        .find({
+            tags: req.params.tag,
+            active: true
+        },'title description price slug tags')
+        .then(data => {
+            res.status(200).send(data);
+        })
+        .catch(e => {
+            res.status(400).send(e);
+        });
+}
 exports.post = (req, res, next) => {
     var product = new Product(req.body);
     product.save()
@@ -53,7 +64,6 @@ exports.post = (req, res, next) => {
             });
         });
 };
-
 exports.put = (req,res,next) => {
     const id = req.params.id;
     res.status(201).send({
@@ -61,7 +71,6 @@ exports.put = (req,res,next) => {
         item:req.body
     });
 }
-
 exports.delete = (req,res,next) => {
     res.status(200).send(req.body);
 }
