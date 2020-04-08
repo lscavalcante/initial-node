@@ -56,9 +56,7 @@ exports.post = (req, res, next) => {
         res.status(400).send(contract.errors()).end();
         return;
     }
-
-    var product = new Product(req.body);
-    product.save()
+    repository.create(req.body)
         .then(x => {
             res.status(201).send({
                 message: 'Produto cadastrado com sucesso'
@@ -73,13 +71,7 @@ exports.post = (req, res, next) => {
 };
 
 exports.put = (req,res,next) => {
-    Product
-    .findByIdAndUpdate(req.params.id, {
-        title :req.body.title,
-        description: req.body.description,
-        price: req.body.price,
-        slug: req.body.slug
-    })
+    repository.update(req.params.id,req.body)
     .then(x => {
         res.status(200).send({
             message: 'Produto atualizado com sucesso'
@@ -94,8 +86,7 @@ exports.put = (req,res,next) => {
 }
 
 exports.delete = (req,res,next) => {
-    Product
-    .findOneAndRemove(req.body.id)
+   repository.delete(req.body.id)
     .then(x => {
         res.status(200).send({
             message: 'Produto removido com sucesso'
