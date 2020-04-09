@@ -12,10 +12,12 @@ mongoose.connect('mongodb+srv://admin:admin@node-baita-jtk7c.mongodb.net/test?re
 // Carrega os Models
 const Product = require('./models/product');
 const Customer = require('./models/customer');
+const Order = require('./models/order');
 
 //carrega as rotas
 const indexRoute = require('./routes/index-route');
 const productRoute = require('./routes/product-route');
+const customerRoute = require('./routes/customer-route');
 
 //middleware
 app.use(bodyParser.json());
@@ -24,6 +26,7 @@ app.use(bodyParser.urlencoded({extended : false}));
 
 app.use('/', indexRoute);
 app.use('/products', productRoute);
+app.use('/customers', customerRoute);
 
 
 module.exports = app;
