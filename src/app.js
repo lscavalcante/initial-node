@@ -7,7 +7,7 @@ const router = express.Router();
 
 // Connecta ao banco
 mongoose.connect('mongodb+srv://admin:admin@node-baita-jtk7c.mongodb.net/test?retryWrites=true&w=majority', 
-{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, }).catch((e) => console.log(e));
+{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false }).catch((e) => console.log(e));
 
 // Carrega os Models
 const Product = require('./models/product');
