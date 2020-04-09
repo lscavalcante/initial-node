@@ -11,6 +11,7 @@ mongoose.connect('mongodb+srv://admin:admin@node-baita-jtk7c.mongodb.net/test?re
 
 // Carrega os Models
 const Product = require('./models/product');
+const Customer = require('./models/customer');
 
 //carrega as rotas
 const indexRoute = require('./routes/index-route');
