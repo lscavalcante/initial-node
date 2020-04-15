@@ -1,13 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const config = require('./config');
 
 const app = express();
 const router = express.Router();
 
+//
+
 // Connecta ao banco
-mongoose.connect('mongodb+srv://admin:admin@node-baita-jtk7c.mongodb.net/test?retryWrites=true&w=majority', 
-{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false }).catch((e) => console.log(e));
+mongoose.connect(config.connectionString,
+    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false }).catch((e) => console.log(e));
 
 // Carrega os Models
 const Product = require('./models/product');
