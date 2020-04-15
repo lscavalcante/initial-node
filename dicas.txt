@@ -10,3 +10,12 @@ pacotes utilizados
     express 
     debug
     nodemon --save-dev
+
+--
+estrutura a ser seguida na hora da criacao
+    primeiro adiciona o modelo
+    segundo adiciona o repositorio
+    terceiro adiciona o controller
+    quarto adiciona a routes
+    adiciona a rota dentro do app
+
