@@ -19,3 +19,7 @@ estrutura a ser seguida na hora da criacao
     quarto adiciona a routes
     adiciona a rota dentro do app
 
+user 
+    ida - Rota > Controller > Repository
+    volta - Repository > Controller > Rota
+

@@ -1,4 +1,4 @@
-global.SALT_KEY = '72AE25495A7981C40622D49F9A52E4F1565C90F048F59027BD9C8C8900D5C3D8';
+global.SALT_KEY = '6999e8b41b1da11d35e4d88ba1100c5c';
 global.EMAIL_TMPL = '<strong>{0}</strong>'
 
 module.exports = {
